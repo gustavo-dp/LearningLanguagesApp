@@ -24,7 +24,7 @@ public class AttemptResponseDTO {
         this.initDate = attempt.getInitDate();
         this.endDate = attempt.getEndDate();
         this.user = new UserResponseDTO(attempt.getUser());
-        this.userAnswers = attempt.getUserAnswers().Stream().map((UserAnswer) -> New UserAnswerResponseDTO(UserAnswer)).toList();
+        this.userAnswers = attempt.getUserAnswers().stream().map((UserAnswer) -> new UserAnswerResponseDTO(UserAnswer)).toList();
         this.quiz = new QuizResponseDTO(attempt.getQuiz());
     }
 }

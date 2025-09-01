@@ -12,7 +12,7 @@ public class OptionResponseDTO {
     private Boolean isCorrect;
     public OptionResponseDTO(Option option){
         this.id = option.getId();
-        this.question = New QuestionResponseDTO(option.getQuestion());
+        this.question = new QuestionResponseDTO(option.getQuestion());
         this.userAnswers = option.getUserAnswers()
                 .stream()
                 .map(userAnswer -> new UserAnswerResponseDTO(userAnswer))
