@@ -11,20 +11,20 @@ import java.util.List;
 public class AttemptResponseDTO {
 
     private Long id;
-    private Quiz quiz;
-    private User user;
-    private List<UserAnswer> userAnswers;
     private int score;
     private LocalDateTime initDate;
     private LocalDateTime endDate;
+    private QuizResponseDTO quiz;
+    private UserResponseDTO user;
+    private List<UserAnswerResponseDTO> userAnswers;
 
     public AttemptResponseDTO(Attempt attempt) {
         this.id = attempt.getId();
-        this.quiz = attempt.getQuiz();
-        this.user = attempt.getUser();
-        this.userAnswers = attempt.getUserAnswers();
         this.score = attempt.getScore();
         this.initDate = attempt.getInitDate();
         this.endDate = attempt.getEndDate();
+        this.user = new UserResponseDTO(attempt.getUser());
+        this.userAnswers = attempt.getUserAnswers().Stream().map((UserAnswer) -> New UserAnswerResponseDTO(UserAnswer)).toList();
+        this.quiz = new QuizResponseDTO(attempt.getQuiz());
     }
 }
