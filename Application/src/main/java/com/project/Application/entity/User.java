@@ -40,5 +40,4 @@ public class User {
     @Column(name="register_date")
     private LocalDateTime registerDate;
 
-
 }
