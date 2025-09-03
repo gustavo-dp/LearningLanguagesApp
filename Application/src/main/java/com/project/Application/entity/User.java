@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data // All getters and setters, hashcode and equals
 @NoArgsConstructor // Empty constructor
@@ -18,6 +19,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", unique=true, nullable=false)
     private Long Id;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Attempt> attempts;
 
     @Column(name="name", nullable=false)
     private String name;
