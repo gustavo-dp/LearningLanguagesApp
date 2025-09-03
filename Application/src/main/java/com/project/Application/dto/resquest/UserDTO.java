@@ -17,9 +17,6 @@ public class UserDTO {
     @NotBlank(message = "Email is required")
     private String email;
 
-    @NotBlank(message = "Password is required")
-    private String password;
-
     @NotBlank(message = "Role is required")
     private String role;
 
@@ -34,7 +31,6 @@ public class UserDTO {
         User user = new User();
         user.setName(name);
         user.setEmail(email);
-        user.setPassword(password);
         user.setRole(role);
         user.setLevel(level);
         user.setXp(xp);
